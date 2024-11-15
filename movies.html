@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Collection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <style>
+        .movie-card {
+            display: flex;
+            background: var(--card-bg);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> home</a></li>
+            <li><a href="projects.html"><i class="fas fa-briefcase"></i> work</a></li>
+            <li><a href="movies.html" class="active"><i class="fas fa-film"></i> movies</a></li>
+            <li><a href="life.html"><i class="fas fa-heartbeat"></i> life</a></li>
+            <li><a href="ai.html"><i class="fas fa-robot"></i> ai</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="movies-hero">
+            <div class="container">
+                <h1>Movie Collection</h1>
+                <p>A curated list of films that shaped my perspective</p>
+            </div>
+        </section>
+
+        <section id="movies-grid">
+            <div class="container">
+                <div class="movies-filter">
+                    <button class="filter-btn active" data-genre="all">All</button>
+                    <button class="filter-btn" data-genre="sci-fi">Sci-Fi</button>
+                    <button class="filter-btn" data-genre="drama">Drama</button>
+                    <button class="filter-btn" data-genre="thriller">Thriller</button>
+                    <button class="filter-btn" data-genre="animation">Animation</button>
+                    <button class="filter-btn" data-genre="documentary">Documentary</button>
+                    <button class="filter-btn" data-genre="comedy">Comedy</button>
+                </div>
+                
+                <div class="movies-showcase">
+                    <article class="movie-card" data-genre="sci-fi">
+                        <div class="movie-poster">
+                            <img src="inception.jpg" alt="Inception">
+                            <div class="movie-overlay">
+                                <a href="#" class="btn-watch">Watch Trailer</a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>Inception</h3>
+                            <div class="movie-meta">
+                                <span>2010</span>
+                                <span class="genre">Sci-Fi</span>
+                            </div>
+                            <p>A thief who steals corporate secrets through dream-sharing technology...</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half"></i>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- Добавьте больше карточек фильмов -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/dataLoader.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await DataLoader.loadData('movies');
+            if (data) {
+                DataLoader.renderMovies(data);
+                
+                const filterButtons = document.querySelectorAll('.filter-btn');
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+
+                        const genre = button.getAttribute('data-genre');
+                        const movieCards = document.querySelectorAll('.movie-card');
+
+                        movieCards.forEach(card => {
+                            if (genre === 'all' || card.getAttribute('data-genre').toLowerCase() === genre.toLowerCase()) {
+                                card.style.display = 'flex';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

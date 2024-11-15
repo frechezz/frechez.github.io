@@ -1,0 +1,22 @@
+{
+    "movies": [
+      {
+        "title": "Inception",
+        "year": "2010",
+        "genre": "sci-fi",
+        "image": "inception.jpg",
+        "rating": 4.5,
+        "description": "A thief who steals corporate secrets through dream-sharing technology...",
+        "trailer": "https://www.youtube.com/watch?v=YoHD9XEInc0"
+      },
+      {
+        "title": "The Matrix",
+        "year": "1999",
+        "genre": "sci-fi",
+        "image": "matrix.jpg",
+        "rating": 5,
+        "description": "A computer programmer discovers a mysterious world...",
+        "trailer": "https://www.youtube.com/watch?v=vKQi3bBA1y8"
+      }
+    ]
+}

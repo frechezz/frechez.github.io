@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> home</a></li>
+            <li><a href="projects.html"><i class="fas fa-briefcase"></i> work</a></li>
+            <li><a href="movies.html"><i class="fas fa-film"></i> movies</a></li>
+            <li><a href="life.html"><i class="fas fa-heartbeat"></i> life</a></li>
+            <li><a href="ai.html" class="active"><i class="fas fa-robot"></i> ai</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="ai-hero">
+            <div class="container">
+                <h1>AI Experiments</h1>
+                <p>Exploring the boundaries of artificial intelligence</p>
+            </div>
+        </section>
+
+        <section id="ai-projects">
+            <div class="container">
+                <div class="ai-grid">
+
+                    <article class="ai-card">
+                        <div class="ai-research">
+                            <h3>Neural Networks</h3>
+                            <div class="research-content">
+                                <p>Exploring deep learning architectures...</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="ai-card">
+                        <div class="ai-blog">
+                            <h3>Latest AI Insights</h3>
+                            <div class="blog-posts">
+                                <div class="blog-post">
+                                    <h4>The Future of AI</h4>
+                                    <p>Exploring the possibilities...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Получаем текущий путь страницы
+        const currentPath = window.location.pathname;
+        
+        // Находим все ссылки в навигации
+        const navLinks = document.querySelectorAll('nav a');
+        
+        // Проходим по всем ссылкам
+        navLinks.forEach(link => {
+            // Если путь ссылки совпадает с текущим путем
+            if (link.getAttribute('href') === currentPath.split('/').pop()) {
+                // Добавляем класс active
+                link.classList.add('active');
+            } else {
+                // Удаляем класс active у остальных ссылок
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 

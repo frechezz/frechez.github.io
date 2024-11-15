@@ -1,0 +1,11 @@
+{
+    "projects": [
+      {
+        "title": "Birtday reminder bot",
+        "description": "A telegram bot that reminds you of your friends' birthdays",
+        "image": "bdbot.png",
+        "technologies": ["Python", "Telegram Bot API", "Gemini API"],
+        "link": "https://github.com/frechezz/birthday-reminder-bot"
+      }
+    ]
+  }

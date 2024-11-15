@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> home</a></li>
+            <li><a href="projects.html"><i class="fas fa-briefcase"></i> work</a></li>
+            <li><a href="movies.html"><i class="fas fa-film"></i> movies</a></li>
+            <li><a href="life.html" class="active"><i class="fas fa-heartbeat"></i> life</a></li>
+            <li><a href="ai.html"><i class="fas fa-robot"></i> ai</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="life-hero">
+            <div class="container">
+                <h1>Life Journey</h1>
+                <p>Documenting the moments that shaped who I am</p>
+            </div>
+        </section>
+
+        <section id="life-grid">
+            <div class="container">
+                <div class="life-categories">
+                    <div class="category-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                        <p>Academic achievements and learning experiences</p>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Career</h3>
+                        <p>Professional milestones and achievements</p>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-plane"></i>
+                        <h3>Travel</h3>
+                        <p>Adventures and explorations around the world</p>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-date">2018</div>
+                                <img src="images/548.png" alt="548 Logo" class="timeline-logo">
+                                <h3>Entered School №548 Engeenering Corps</h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-date">2023</div>
+                                <img src="images/MIREA_Gerb_Colour.png" alt="MIREA Logo" class="timeline-logo">
+                                <h3>Entered MIREA college</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Добавьте больше timeline-item -->
+                </div>
+            </div>
+        </section>
+
+        <section id="photo-gallery">
+            <div class="container">
+                <h2>Photo Memories</h2>
+                <div class="gallery-grid">
+                    <!-- Фотографии будут добавляться здесь -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Сначала подключаем утилиту для загрузки данных -->
+    <script src="js/dataLoader.js"></script>
+    
+    <!-- Затем скрипт для активного пункта меню -->
+    <script>
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.getAttribute('href') === currentPath.split('/').pop()) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+
+    <!-- И наконец скрипт для загрузки данных -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const data = await DataLoader.loadData('life');
+            if (data) {
+                DataLoader.renderTimeline(data);
+            }
+        });
+    </script>
+</body>
+</html> 

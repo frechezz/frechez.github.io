@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <ul>
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> home</a></li>
+        <li><a href="projects.html"><i class="fas fa-briefcase"></i> work</a></li>
+        <li><a href="movies.html"><i class="fas fa-film"></i> movies</a></li>
+        <li><a href="life.html"><i class="fas fa-heartbeat"></i> life</a></li>
+        <li><a href="ai.html"><i class="fas fa-robot"></i> ai</a></li>
+    </ul>
+</nav>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>hi, Hello!</h1>
+                <p>Designer — I occasionally drift as a designer, and slowly wrought myself to code and build software products. Currently, I live and work in Berlin. I love normal levels of digital nomading. Fill Australia and Asia with bricks — while building some softwares and products and teaching.</p>
+                <a href="https://t.me/peeepaw" class="btn">Contact Me</a> 
+            </div>
+        </section>
+
+        <section id="work">
+            <div class="container">
+                <h2>Work</h2>
+
+                <div class="projects"> 
+                    <div class="project">
+                        <img src="project1.jpg" alt="Project 1">  
+                        <h3>Projects I worked on</h3>
+                        <p>Short Description</p>
+                    </div>
+
+                    <div class="project">
+                        <img src="project2.jpg" alt="Project 2">
+                        <h3>Macroscopy</h3>
+                        <p>Exploring tiny things</p>
+                    </div>
+
+                    <div class="project">
+                        <img src="project3.jpg" alt="Project 3">
+                        <h3>AI</h3>
+                        <p>Experiments with AI</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Получаем текущий путь страницы
+        const currentPath = window.location.pathname;
+        
+        // Находим все ссылки в навигации
+        const navLinks = document.querySelectorAll('nav a');
+        
+        // Проходим по всем ссылкам
+        navLinks.forEach(link => {
+            // Если путь ссылки совпадает с текущим путем
+            if (link.getAttribute('href') === currentPath.split('/').pop()) {
+                // Добавляем класс active
+                link.classList.add('active');
+            } else {
+                // Удаляем класс active у остальных ссылок
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
